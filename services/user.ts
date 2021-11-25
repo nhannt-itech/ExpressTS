@@ -8,10 +8,6 @@ class UserService {
 		const obj = db("user").insert({ full_name, username, password }).returning<User>("*");
 		return obj;
 	}
-	async get(id: string): Promise<User> {
-		const obj = (await db("user").where("id", id).first().returning<User>("*")) || null;
-		return obj;
-	}
 	async login(userDto: BaseLoginUser): Promise<string | null> {
 		const user =
 			(await db("user")

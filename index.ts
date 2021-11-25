@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 const PORT = 8000;
 
-import passport from "./middleware/passport";
+import passport from "./middleware/passport/config";
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(passport.initialize());

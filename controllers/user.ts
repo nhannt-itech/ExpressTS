@@ -1,24 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import UserService from "../services/user";
-import { User, BaseUser, BaseLoginUser } from "../interfaces/user";
-import { success, error, validation } from "../utils/response-api";
-import jwt from "jsonwebtoken";
+import { BaseLoginUser } from "../interfaces/user";
+import { success } from "../utils/response-api";
 import { IncomingHttpHeaders } from "http";
 
 class UserController {
 	async register(req: Request, res: Response, next: NextFunction) {
 		try {
-			let newUser: BaseUser = req.body;
-			const results = await UserService.register(newUser);
-			res.status(200).json(success(results, "OK", res.statusCode));
-		} catch (err) {
-			next(err);
-		}
-	}
-	async get(req: Request, res: Response, next: NextFunction) {
-		try {
-			const { id } = req.query;
-			const results = await UserService.get(id as string);
+			const results = await UserService.register(req.body);
 			res.status(200).json(success(results, "OK", res.statusCode));
 		} catch (err) {
 			next(err);

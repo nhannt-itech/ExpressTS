@@ -1,11 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import { RequestHandler } from "express";
-import { error } from "../utils/response-api";
+import { error } from "../../utils/response-api";
 import passport from "passport";
-import { resolveSoa } from "dns";
-import { BaseUser } from "../interfaces/user";
+import { BaseUser } from "../../interfaces/user";
 
-const auth = (roles = [] as string[]) => {
+export const auth = (roles = [] as string[]) => {
 	return (req: Request, res: Response, next: NextFunction) => {
 		passport.authenticate("jwt", { session: false }, function (err, user: BaseUser, info) {
 			if (err) {
@@ -22,5 +20,3 @@ const auth = (roles = [] as string[]) => {
 		})(req, res, next);
 	};
 };
-
-export default auth;

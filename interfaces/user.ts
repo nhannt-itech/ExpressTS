@@ -1,23 +1,17 @@
-import {
-	validate,
-	validateOrReject,
-	Contains,
-	IsInt,
-	Length,
-	IsEmail,
-	IsFQDN,
-	IsDate,
-	Min,
-	Max,
-} from "class-validator";
+import { IsNotEmpty } from "class-validator";
 
 export interface User extends BaseUser {
 	id: BigInt;
 }
 
 export class BaseUser {
+	@IsNotEmpty()
 	full_name: string;
+
+	@IsNotEmpty()
 	username: string;
+
+	@IsNotEmpty()
 	password: string;
 	role: string;
 	created_at: Date;

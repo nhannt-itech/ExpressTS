@@ -9,14 +9,15 @@ import {
 	IsDate,
 	Min,
 	Max,
+	IsNotEmpty,
 } from "class-validator";
 
 export class Post {
 	@Length(10, 20)
 	title: string;
 
-	@Contains("hello")
-	text: string;
+	@IsNotEmpty()
+	example: string;
 
 	@IsInt()
 	@Min(0)

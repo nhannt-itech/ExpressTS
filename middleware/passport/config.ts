@@ -1,7 +1,7 @@
-import { User } from "./../interfaces/user";
+import { User } from "../../interfaces/user";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import passport from "passport";
-import db from "../database/db";
+import db from "../../database/db";
 
 passport.use(
 	new JwtStrategy(
