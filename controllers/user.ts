@@ -29,6 +29,16 @@ class userController {
 			next(err);
 		}
 	}
+	async delete(req: Request, res: Response, next: NextFunction) {
+		try {
+			const id = req.query.id as string;
+
+			const results = await UserService.delete(id);
+			res.status(200).json(success(results, "OK", res.statusCode));
+		} catch (err) {
+			next(err);
+		}
+	}
 }
 
 export const UserController = new userController();

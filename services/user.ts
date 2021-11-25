@@ -22,6 +22,19 @@ class UserService {
 			return null;
 		}
 	}
+	async delete(user_id: string): Promise<number> {
+		return await db.transaction(async (trx) => {
+			try {
+				await trx("task").where("user_id", user_id).del();
+				const res = await trx("user").where("id", user_id).del();
+				return res;
+				trx.commit();
+			} catch {
+				return 0;
+				await trx.rollback();
+			}
+		});
+	}
 }
 
 export default new UserService();
