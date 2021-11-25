@@ -1,10 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import UserService from "../services/user";
-import { BaseLoginUser } from "../interfaces/user";
+import { BaseLoginUser } from "../models/user";
 import { success } from "../utils/response-api";
-import { IncomingHttpHeaders } from "http";
 
-class UserController {
+class userController {
 	async register(req: Request, res: Response, next: NextFunction) {
 		try {
 			const results = await UserService.register(req.body);
@@ -32,17 +31,4 @@ class UserController {
 	}
 }
 
-const getToken = function (headers: IncomingHttpHeaders) {
-	if (headers && headers.authorization) {
-		var parted = headers.authorization.split(" ");
-		if (parted.length === 2) {
-			return parted[1];
-		} else {
-			return null;
-		}
-	} else {
-		return null;
-	}
-};
-
-export default new UserController();
+export const UserController = new userController();

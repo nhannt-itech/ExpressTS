@@ -1,4 +1,4 @@
-import { User } from "../../interfaces/user";
+import { User } from "../../models/user";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import passport from "passport";
 import db from "../../database/db";
@@ -6,7 +6,7 @@ import db from "../../database/db";
 passport.use(
 	new JwtStrategy(
 		{
-			jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme("jwt"),
+			jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme("Bearer"),
 			secretOrKey: process.env.SECRET_KEY,
 		},
 		async function (jwt_payload, done) {

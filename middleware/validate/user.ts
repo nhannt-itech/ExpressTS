@@ -1,4 +1,4 @@
-import { BaseUser } from "./../../interfaces/user";
+import { BaseUser } from "../../models/user";
 import { Request, Response, NextFunction } from "express";
 import Validator from "./validator";
 

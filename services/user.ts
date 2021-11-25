@@ -1,6 +1,6 @@
-import { BaseUser, User, BaseLoginUser } from "../interfaces/user";
+import { BaseUser, User, BaseLoginUser } from "../models";
 import db from "../database/db";
-import jwt, { Secret } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 class UserService {
 	async register(userDto: BaseUser): Promise<User> {

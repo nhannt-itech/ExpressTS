@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { error } from "../../utils/response-api";
 import passport from "passport";
-import { BaseUser } from "../../interfaces/user";
+import { BaseUser } from "../../models/user";
 
 export const auth = (roles = [] as string[]) => {
 	return (req: Request, res: Response, next: NextFunction) => {
