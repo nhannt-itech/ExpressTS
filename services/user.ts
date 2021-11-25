@@ -20,7 +20,6 @@ class UserService {
 				.first()
 				.returning<User>("*")) || null;
 		if (user) {
-			console.log(process.env.SECRET_KEY);
 			var token = jwt.sign(user, process.env.SECRET_KEY as string);
 			return token;
 		} else {
