@@ -8,12 +8,10 @@ class TaskService {
 		return obj;
 	}
 	async update(taskDto: Task): Promise<Task> {
-		const { id, title, content, user_id } = taskDto;
+		const { id, title, content } = taskDto;
 		const obj =
-			(await db("task")
-				.where("id", "=", id)
-				.update({ title, content, user_id })
-				.returning<Task>("*")) || null;
+			(await db("task").where("id", "=", id).update({ title, content }).returning<Task>("*")) ||
+			null;
 		return obj;
 	}
 	async delete(task_id: string): Promise<number> {

@@ -1,3 +1,4 @@
+import { error } from "./../utils/response-api";
 import { Request, Response, NextFunction } from "express";
 import UserService from "../services/user";
 import { BaseLoginUser } from "../models/user";
@@ -16,8 +17,9 @@ class userController {
 		try {
 			let user: BaseLoginUser = req.body;
 			const results = await UserService.login(user);
-			console.log(results);
-			res.status(200).json(success(results, "OK", res.statusCode));
+			results
+				? res.status(200).json(success(results, "OK", res.statusCode))
+				: res.status(400).json(error("wrong username or password", res.statusCode));
 		} catch (err) {
 			next(err);
 		}
