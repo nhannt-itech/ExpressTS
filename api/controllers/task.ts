@@ -1,8 +1,8 @@
-import { BaseTask } from "./../models/task";
+import { BaseTask } from "../../models/task";
 import { Request, Response, NextFunction } from "express";
 import TaskService from "../services/task";
-import { Task, User } from "../models";
-import { success } from "../utils/response-api";
+import { Task, User } from "../../models";
+import { success } from "../../utils/response-api";
 
 class taskController {
 	async create(req: Request, res: Response, next: NextFunction) {

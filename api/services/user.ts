@@ -1,5 +1,5 @@
-import { BaseUser, User, BaseLoginUser } from "../models";
-import db from "../database/db";
+import { BaseUser, User, BaseLoginUser } from "../../models";
+import db from "../../database/db";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 

@@ -1,5 +1,5 @@
 import express from "express";
-import { UserController, TaskController } from "../controllers";
+import { UserController, TaskController } from "../api/controllers";
 import { auth } from "../middleware";
 import { ValidateUser, ValidateTask } from "../middleware/validate";
 import { Role } from "../constants";

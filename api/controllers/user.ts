@@ -1,8 +1,8 @@
-import { error } from "./../utils/response-api";
+import { error } from "../../utils/response-api";
 import { Request, Response, NextFunction } from "express";
 import UserService from "../services/user";
-import { BaseLoginUser } from "../models/user";
-import { success } from "../utils/response-api";
+import { BaseLoginUser } from "../../models/user";
+import { success } from "../../utils/response-api";
 
 class userController {
 	async register(req: Request, res: Response, next: NextFunction) {

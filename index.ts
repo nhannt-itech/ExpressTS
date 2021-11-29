@@ -1,6 +1,6 @@
 import express from "express";
 import { errorHandler } from "./middleware";
-import routes from "./routes";
+import adminRoutes from "./routes/admin";
 import morgan from "morgan";
 import * as dotenv from "dotenv";
 
@@ -14,9 +14,11 @@ app.use(morgan("tiny"));
 app.use(express.json());
 app.use(passport.initialize());
 
-app.use(routes);
+app.use("/admin", adminRoutes);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
 	console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
+
+export default app;

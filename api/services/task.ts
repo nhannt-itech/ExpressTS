@@ -1,5 +1,5 @@
-import { BaseTask, Task } from "./../models";
-import db from "../database/db";
+import { BaseTask, Task } from "../../models";
+import db from "../../database/db";
 
 class TaskService {
 	async create(taskDto: BaseTask): Promise<Task> {
