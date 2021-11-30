@@ -10,8 +10,7 @@ class validateUser {
 		newUser.username = req.body.username;
 		newUser.password = req.body.password;
 
-		await Validator(newUser, res);
-		next();
+		await Validator(newUser, res, next);
 	}
 }
 

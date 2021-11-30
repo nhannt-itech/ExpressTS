@@ -9,8 +9,7 @@ class validateTask {
 		newTask.title = req.body.title;
 		newTask.content = req.body.content;
 
-		await Validator(newTask, res);
-		next();
+		await Validator(newTask, res, next);
 	}
 	async update(req: Request, res: Response, next: NextFunction) {
 		let task = new Task();
@@ -18,8 +17,7 @@ class validateTask {
 		task.title = req.body.title;
 		task.content = req.body.content;
 
-		await Validator(task, res);
-		next();
+		await Validator(task, res, next);
 	}
 }
 
