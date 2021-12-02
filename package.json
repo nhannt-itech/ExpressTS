@@ -2,13 +2,20 @@
   "name": "expressts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "engines": {
+    "node": "12.16.3"
+  },
   "scripts": {
     "test": "jest",
-    "test:unit": "ENV_FILE=./config/.env.test jest",
-    "start": "nodemon index.ts",
-    "migrate": "npx knex migrate:latest --knexfile database/config.js",
-    "migrate-down": "npx knex migrate:down --knexfile database/config.js"
+    "test:unit": "ENV_FILE=./src/config/.env.test jest",
+    "start": "node dist/index.ts",
+    "postinstall": "tsc",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add . && git commit -m Heroku && git push heroku master",
+    "migrate": "npx knex migrate:latest --knexfile src/database/config.js",
+    "migrate-down": "npx knex migrate:down --knexfile src/database/config.js"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +42,7 @@
     "@types/node": "^16.11.9",
     "@types/passport-jwt": "^3.0.6",
     "@types/supertest": "^2.0.11",
+    "@types/validator": "^13.7.0",
     "jest": "^27.3.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
