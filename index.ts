@@ -22,6 +22,6 @@ app.get("/", (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
+app.listen(PORT || 8080, () => {
 	console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
