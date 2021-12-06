@@ -1,4 +1,4 @@
-import express, { Application } from "express";
+import express from "express";
 import { errorHandler } from "./middleware";
 import adminRoutes from "./routes/admin";
 import morgan from "morgan";
@@ -6,7 +6,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export const app: Application = express();
+export const app = express();
 const PORT = 8080;
 
 import passport from "./middleware/passport/config";
