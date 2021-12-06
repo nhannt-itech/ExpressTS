@@ -16,9 +16,9 @@ app.use(passport.initialize());
 
 app.use("/admin", adminRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.get("/", (req, res) => {
+	res.send("Hello World!");
+});
 
 app.use(errorHandler);
 
