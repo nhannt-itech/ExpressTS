@@ -7,7 +7,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 export const app = express();
-const PORT = 8080;
+
+var PORT = process.env.PORT || 8080;
 
 import passport from "./middleware/passport/config";
 app.use(morgan("tiny"));
