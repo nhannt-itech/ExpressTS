@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const controllers_1 = require("../api/controllers");
+const middleware_1 = require("../middleware");
+const validate_1 = require("../middleware/validate");
+const constants_1 = require("../constants");
+const routes = express_1.default.Router();
+routes.post("/user/register", validate_1.ValidateUser.register, controllers_1.UserController.register);
+routes.post("/user/login", controllers_1.UserController.login);
+routes.get("/user/profile", (0, middleware_1.auth)(), controllers_1.UserController.profile);
+routes.delete("/user", (0, middleware_1.auth)(constants_1.Role.ADMIN), controllers_1.UserController.delete);
+routes.post("/task", (0, middleware_1.auth)(), validate_1.ValidateTask.create, controllers_1.TaskController.create);
+routes.put("/task", (0, middleware_1.auth)(constants_1.Role.MOD), controllers_1.TaskController.update);
+routes.delete("/task", (0, middleware_1.auth)(constants_1.Role.MOD), controllers_1.TaskController.delete);
+routes.get("/task", controllers_1.TaskController.search);
+exports.default = routes;
