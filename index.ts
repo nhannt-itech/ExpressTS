@@ -16,12 +16,12 @@ app.use(passport.initialize());
 
 app.use("/admin", adminRoutes);
 
-app.get("/", (req, res) => {
-	res.send("Hello World!");
-});
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 app.use(errorHandler);
 
-app.listen(PORT || 8080, () => {
+app.listen(PORT, () => {
 	console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
