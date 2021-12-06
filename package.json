@@ -12,9 +12,7 @@
     "watch-ts": "tsc -w",
     "deploy": "git add . && git commit -m Heroku && git push heroku master",
     "migrate": "npx knex migrate:latest --knexfile src/database/config.js",
-    "migrate-down": "npx knex migrate:down --knexfile src/database/config.js",
-
-    "build": "webpack"
+    "migrate-down": "npx knex migrate:down --knexfile src/database/config.js"
   },
   "keywords": [],
   "author": "",
