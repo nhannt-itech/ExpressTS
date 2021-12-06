@@ -17,6 +17,10 @@ app.get("/", (req, res) => {
 	res.send("Hello World!");
 });
 
+app.get("/home", (req, res) => {
+	res.send("Home");
+});
+
 app.use("/admin", adminRoutes);
 
 app.use(errorHandler);
